@@ -9,13 +9,13 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "maranasi-db"
-database_id = "PLACEHOLDER-RUN-WRANGLER-D1-CREATE"
+database_id = "69a83d22-1871-4c5f-a755-7f3689151e4c"
 migrations_dir = "../../infra/d1-migrations"
 
 # KV — sessions + ephemeral tokens + IP-hash salt
 [[kv_namespaces]]
 binding = "KV"
-id = "PLACEHOLDER-RUN-WRANGLER-KV-CREATE"
+id = "ee5ba226c79241d9a5e55ca3cabc7e5b"
 
 # R2 — file storage
 [[r2_buckets]]
@@ -68,12 +68,12 @@ vars = { ENVIRONMENT = "staging" }
 [[env.staging.d1_databases]]
 binding = "DB"
 database_name = "maranasi-db-staging"
-database_id = "PLACEHOLDER"
+database_id = "8ecf34bd-9a36-4064-94b4-c0665f36cbf3"
 migrations_dir = "../../infra/d1-migrations"
 
 [[env.staging.kv_namespaces]]
 binding = "KV"
-id = "PLACEHOLDER"
+id = "181f1d3dbfdc4a3e995452de2313b26a"
 
 [[env.staging.r2_buckets]]
 binding = "DOCS_BUCKET"
