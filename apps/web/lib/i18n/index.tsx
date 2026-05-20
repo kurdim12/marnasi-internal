@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, useMemo, type ReactNode } from 'react';
 import ar from './ar.json';
 import en from './en.json';
 
@@ -20,6 +20,18 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 export function I18nProvider({ initialLocale = 'ar', children }: { initialLocale?: Locale; children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale);
+
+  // Rehydrate from localStorage on mount so user choice survives reloads.
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('mi.locale');
+      if (stored === 'ar' || stored === 'en') {
+        setLocaleState(stored);
+        document.documentElement.lang = stored;
+        document.documentElement.dir = stored === 'ar' ? 'rtl' : 'ltr';
+      }
+    } catch {}
+  }, []);
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);

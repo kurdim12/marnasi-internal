@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
-:root {
+/* Tailwind v4 reads custom theme tokens from this block. */
+@theme {
   --color-emerald-900: #0F3D2E;
   --color-emerald-950: #0a2b20;
   --color-champagne-400: #C9A86A;
+  --color-champagne-500: #b8975a;
   --color-ivory-50: #F8F4ED;
+  --color-ivory-100: #efe9dd;
   --color-ink-950: #0A0A0A;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-arabic: var(--font-arabic), Tahoma, sans-serif;
+  --font-serif: Georgia, serif;
 }
 
 html { font-family: var(--font-inter), system-ui, sans-serif; }
@@ -27,16 +34,24 @@ body {
     color: white;
   }
   .btn-primary:hover { background: var(--color-emerald-950); }
-  .btn-ghost { @apply text-emerald-900 hover:bg-ivory-100; }
+  .btn-ghost {
+    color: var(--color-emerald-900);
+  }
+  .btn-ghost:hover { background: var(--color-ivory-100); }
 
   .field {
-    @apply w-full rounded-xl border border-ink-950/10 bg-white px-4 py-3 text-sm shadow-sm
-           focus:border-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-900/20;
+    @apply w-full rounded-xl border bg-white px-4 py-3 text-sm shadow-sm focus:outline-none;
+    border-color: rgb(10 10 10 / 0.1);
   }
-  .label { @apply mb-1.5 block text-sm font-medium text-ink-950/80; }
+  .field:focus {
+    border-color: var(--color-emerald-900);
+    box-shadow: 0 0 0 3px rgb(15 61 46 / 0.2);
+  }
+  .label { @apply mb-1.5 block text-sm font-medium; color: rgb(10 10 10 / 0.8); }
 
   .card {
-    @apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink-950/5;
+    @apply rounded-2xl bg-white p-6 shadow-sm;
+    box-shadow: 0 1px 2px 0 rgb(10 10 10 / 0.04), 0 0 0 1px rgb(10 10 10 / 0.05);
   }
 
   .pill {
