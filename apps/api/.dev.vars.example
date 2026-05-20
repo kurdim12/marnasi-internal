@@ -1,0 +1,5 @@
+JWT_SECRET=dev-jwt-secret-replace-with-256-bits-of-random
+PASSWORD_PEPPER=dev-pepper-replace-with-32-random-bytes
+ORG_MASTER_KEY=dev-base64-32-bytes-MUST-be-real-base64-key=
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+MAILCHANNELS_DKIM_PRIVATE_KEY=

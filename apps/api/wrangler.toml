@@ -1,0 +1,97 @@
+name = "maranasi-api"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ---- Bindings (default = local dev) ----
+
+# D1 — relational DB
+[[d1_databases]]
+binding = "DB"
+database_name = "maranasi-db"
+database_id = "PLACEHOLDER-RUN-WRANGLER-D1-CREATE"
+migrations_dir = "../../infra/d1-migrations"
+
+# KV — sessions + ephemeral tokens + IP-hash salt
+[[kv_namespaces]]
+binding = "KV"
+id = "PLACEHOLDER-RUN-WRANGLER-KV-CREATE"
+
+# R2 — file storage
+[[r2_buckets]]
+binding = "DOCS_BUCKET"
+bucket_name = "maranasi-docs"
+
+[[r2_buckets]]
+binding = "ATTACHMENTS_BUCKET"
+bucket_name = "maranasi-attachments"
+
+[[r2_buckets]]
+binding = "BACKUPS_BUCKET"
+bucket_name = "maranasi-backups"
+
+# Durable Objects
+[[durable_objects.bindings]]
+name = "CHAT_ROOM"
+class_name = "ChatRoom"
+
+[[durable_objects.bindings]]
+name = "RATE_LIMITER"
+class_name = "RateLimiter"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["ChatRoom", "RateLimiter"]
+
+# Queues (background jobs: invite emails, report TTL, audit pruning)
+[[queues.producers]]
+queue = "maranasi-jobs"
+binding = "JOBS_QUEUE"
+
+[[queues.consumers]]
+queue = "maranasi-jobs"
+max_batch_size = 10
+max_batch_timeout = 30
+
+# Cron Triggers
+[triggers]
+crons = [
+  "0 3 * * *",   # daily: rotate IP-hash salt, prune expired sessions
+  "0 4 * * 0"    # weekly Sunday: purge expired anonymous reports
+]
+
+# ---- Staging environment ----
+[env.staging]
+name = "maranasi-api-staging"
+vars = { ENVIRONMENT = "staging" }
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "maranasi-db-staging"
+database_id = "PLACEHOLDER"
+migrations_dir = "../../infra/d1-migrations"
+
+[[env.staging.kv_namespaces]]
+binding = "KV"
+id = "PLACEHOLDER"
+
+[[env.staging.r2_buckets]]
+binding = "DOCS_BUCKET"
+bucket_name = "maranasi-docs-staging"
+
+[[env.staging.r2_buckets]]
+binding = "ATTACHMENTS_BUCKET"
+bucket_name = "maranasi-attachments-staging"
+
+[[env.staging.r2_buckets]]
+binding = "BACKUPS_BUCKET"
+bucket_name = "maranasi-backups-staging"
+
+# Vars (non-secret)
+[vars]
+ENVIRONMENT = "development"
+ALLOWED_ORIGINS = "http://localhost:3000"
+ACCESS_TOKEN_TTL_SECONDS = "900"
+REFRESH_TOKEN_TTL_SECONDS = "2592000"
+REPORT_TTL_DAYS = "180"
+AUDIT_RETENTION_DAYS = "730"
