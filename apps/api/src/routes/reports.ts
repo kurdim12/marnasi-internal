@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { z } from 'zod';
 import { ulid } from 'ulid';
-import { hashTrackingCode, verifyTrackingCode } from '../lib/crypto';
+import { hashTrackingCode } from '../lib/crypto';
 import { getActiveHrKey, getHrKeyById } from '../lib/db';
 import { audit } from '../lib/audit';
 import { verifyTurnstile } from '../lib/turnstile';
@@ -36,7 +36,8 @@ const submitReportSchema = z.object({
   titleEncrypted: z.string().min(1),
   bodyEncrypted: z.string().min(1),
   attachmentsEncrypted: z.string().optional(),
-  trackingCodeHash: z.string().min(1),
+  // Raw tracking code sent over TLS; server argon2-hashes and never persists plaintext.
+  trackingCode: z.string().min(8).max(32),
   turnstileToken: z.string().min(1),
 });
 
@@ -59,6 +60,8 @@ reportsRouter.post(
     const ttlDays = Number(c.env.REPORT_TTL_DAYS) || 180;
     const id = ulid();
 
+    const trackingCodeHash = hashTrackingCode(body.trackingCode, c.env.PASSWORD_PEPPER);
+
     await c.env.DB.prepare(`
       INSERT INTO reports (
         id, category, severity, hr_key_id,
@@ -68,7 +71,7 @@ reportsRouter.post(
     `).bind(
       id, body.category, body.severity, body.hrKeyId,
       body.ephemeralPubkey, body.wrappedAesKey, body.titleEncrypted, body.bodyEncrypted, body.attachmentsEncrypted ?? null,
-      body.trackingCodeHash,
+      trackingCodeHash,
       now, now, now + ttlDays * 24 * 60 * 60 * 1000,
     ).run();
 
@@ -97,33 +100,16 @@ reportsRouter.post(
       return c.json({ error: 'turnstile_failed' }, 400);
     }
 
-    // Enumerate by walking only open/active reports — but argon2 is slow,
-    // so we cap a candidate set to the most recent N reports.
-    // Better: client provides hash, server matches index. We hashed it.
-    const candidates = await c.env.DB.prepare(`
-      SELECT id, status, status_note_encrypted, updated_at, created_at, category, severity
-      FROM reports
-      WHERE expires_at > ?
-      ORDER BY created_at DESC
-      LIMIT 5000
-    `).bind(Date.now()).all<{
-      id: string; status: string; status_note_encrypted: string | null;
-      updated_at: number; created_at: number; category: string; severity: string;
-    }>();
-
-    // Hash the supplied code once; compare against stored hashes.
-    // Stored hashes use the same argon2 params + pepper-derived salt, so one
-    // argon2 call lets us linear-scan the candidate set.
+    // Compute the deterministic argon2 hash (uses pepper-derived salt) and
+    // index-lookup. Single argon2 call; constant-time-ish at server side.
     const targetHash = hashTrackingCode(parsed.data.code, c.env.PASSWORD_PEPPER);
-    // Fetch matching tracking_code_hash. Single index lookup — cheap.
     const match = await c.env.DB.prepare(`
       SELECT id, status, status_note_encrypted, updated_at, created_at, category, severity
-      FROM reports WHERE tracking_code_hash = ? LIMIT 1
-    `).bind(targetHash).first<{
+      FROM reports WHERE tracking_code_hash = ? AND expires_at > ? LIMIT 1
+    `).bind(targetHash, Date.now()).first<{
       id: string; status: string; status_note_encrypted: string | null;
       updated_at: number; created_at: number; category: string; severity: string;
     }>();
-    void candidates; // candidates fetch is unused — index match is sufficient
 
     if (!match) return c.json({ error: 'not_found' }, 404);
 
@@ -189,5 +175,3 @@ adminReportsRouter.patch('/:id/status', async (c) => {
   return c.json({ ok: true });
 });
 
-// Verify helper used elsewhere (mostly tests)
-export { verifyTrackingCode };

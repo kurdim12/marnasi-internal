@@ -1,0 +1,158 @@
+{
+  "app": {
+    "name": "Maranasi Intranet",
+    "tagline": "The internal workspace of Maranasi Events"
+  },
+  "nav": {
+    "chat": "Chat",
+    "reports": "Reports",
+    "docs": "Documents",
+    "hr": "HR",
+    "me": "Profile",
+    "admin": "Admin",
+    "signOut": "Sign out"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "forgotPassword": "Forgot password?",
+      "errors": {
+        "invalid": "Invalid credentials.",
+        "rateLimited": "Too many attempts. Try again later.",
+        "turnstile": "Verification failed."
+      }
+    },
+    "signup": {
+      "title": "Set up your account",
+      "subtitle": "Welcome. We will generate your encryption keys on this device.",
+      "displayNameAr": "الاسم بالعربية",
+      "displayNameEn": "Name in English",
+      "phone": "Phone",
+      "password": "Password",
+      "passwordHint": "At least 12 characters. We cannot recover it.",
+      "submit": "Create account",
+      "warning": "Note: forgetting your password means losing chat history permanently. This is by design."
+    },
+    "forgotPassword": {
+      "title": "Reset password",
+      "warning": "You will lose all encrypted chat history. Continue?"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "newConversation": "New conversation",
+    "newGroup": "New group",
+    "placeholder": "Write a message…",
+    "send": "Send",
+    "noRooms": "No conversations yet.",
+    "encrypted": "End-to-end encrypted",
+    "typing": "typing…",
+    "delivered": "Delivered",
+    "read": "Read",
+    "decryptError": "Could not decrypt message",
+    "memberRemoved": "Member removed. Room key rotated."
+  },
+  "reports": {
+    "submit": {
+      "title": "Submit a report anonymously",
+      "subtitle": "We do not store your identity. Your report is encrypted so only HR can read it.",
+      "category": "Category",
+      "categories": {
+        "harassment": "Harassment",
+        "safety": "Safety",
+        "financial": "Financial",
+        "other": "Other"
+      },
+      "severity": "Severity",
+      "severities": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
+      },
+      "subject": "Subject",
+      "body": "Details",
+      "submit": "Submit report",
+      "success": {
+        "title": "Report received",
+        "code": "Save the code below. We cannot recover it.",
+        "checkLater": "Use this code later to check the status.",
+        "copy": "Copy code",
+        "copied": "Copied",
+        "done": "Done"
+      }
+    },
+    "track": {
+      "title": "Track a report",
+      "code": "Enter tracking code",
+      "submit": "Check status",
+      "status": "Status",
+      "lastUpdate": "Last update",
+      "response": "HR response",
+      "noResponse": "No response yet."
+    },
+    "inbox": {
+      "title": "Report inbox",
+      "filter": "Filter",
+      "open": "Open",
+      "triaged": "Triaged",
+      "investigating": "Investigating",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    }
+  },
+  "docs": {
+    "title": "Documents",
+    "upload": "Upload",
+    "visibility": {
+      "private": "Private",
+      "department": "Department",
+      "company": "Company"
+    },
+    "download": "Download",
+    "delete": "Delete"
+  },
+  "hr": {
+    "leave": {
+      "title": "Leave requests",
+      "newRequest": "New request",
+      "type": "Type",
+      "types": {
+        "annual": "Annual",
+        "sick": "Sick",
+        "unpaid": "Unpaid",
+        "maternity": "Maternity"
+      },
+      "from": "From",
+      "to": "To",
+      "reason": "Reason",
+      "submit": "Submit",
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "cancelled": "Cancelled"
+      }
+    },
+    "payslips": {
+      "title": "Payslips",
+      "noPayslips": "No payslips yet.",
+      "download": "Download (decrypts on your device)"
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "language": "Language",
+    "arabic": "العربية",
+    "english": "English"
+  }
+}
