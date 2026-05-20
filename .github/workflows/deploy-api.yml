@@ -1,3 +1,4 @@
+# Deploys apps/api/ (Cloudflare Worker) on push to the production branch.
 name: Deploy API Worker
 
 on:
