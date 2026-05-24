@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { localizedNumber } from '@/lib/utils';
@@ -35,12 +36,16 @@ export function ActiveEvents() {
           const pct = Math.round((ev.tasksComplete / ev.tasksTotal) * 100);
           const done = ev.daysFromNow < 0;
           return (
-            <motion.article
+            <motion.div
               key={ev.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE, delay: 0.3 + i * 0.05 }}
-              className="relative flex h-[208px] w-[264px] shrink-0 flex-col justify-between overflow-hidden rounded-card p-5 text-maranasi-cream"
+              className="shrink-0"
+            >
+            <Link
+              href={`/events/${ev.id}`}
+              className="relative flex h-[208px] w-[264px] flex-col justify-between overflow-hidden rounded-card p-5 text-maranasi-cream transition-transform duration-200 hover:-translate-y-0.5"
               style={{ background: `linear-gradient(135deg, ${ev.gradient[0]}, ${ev.gradient[1]})` }}
             >
               {/* depth: bottom shade for legibility + faint top glow */}
@@ -64,7 +69,8 @@ export function ActiveEvents() {
                   </span>
                 </div>
               </div>
-            </motion.article>
+            </Link>
+            </motion.div>
           );
         })}
       </div>

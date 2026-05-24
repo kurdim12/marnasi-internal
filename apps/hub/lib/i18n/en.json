@@ -110,5 +110,116 @@
     "sentBody": "A private portal with a live countdown, the proposal, a mood board, and a single tap to approve.",
     "portalEyebrow": "Your wedding",
     "units": { "days": "days", "hours": "hours", "minutes": "minutes" }
+  },
+  "vendorCategories": {
+    "catering": "Catering",
+    "floral": "Floral",
+    "photography": "Photography",
+    "videography": "Videography",
+    "lighting": "Lighting",
+    "sound": "Sound",
+    "venue": "Venue",
+    "decor": "Decor",
+    "entertainment": "Entertainment",
+    "transport": "Transport",
+    "other": "Other"
+  },
+  "eventDetail": {
+    "back": "Dashboard",
+    "tabs": {
+      "overview": "Overview",
+      "timeline": "Timeline",
+      "vendors": "Vendors",
+      "budget": "Budget",
+      "files": "Files",
+      "portal": "Client Portal"
+    },
+    "overview": {
+      "producer": "Producer",
+      "venue": "Venue",
+      "guests": "Guests",
+      "budget": "Budget",
+      "tier": "Tier",
+      "tasks": "Tasks complete",
+      "daysToGo": "{count} days to go",
+      "tomorrow": "Tomorrow",
+      "today": "Today",
+      "completed": "Completed",
+      "recentActivity": "Recent activity"
+    },
+    "status": {
+      "planning": "Planning",
+      "in_production": "In production",
+      "day_of": "Day of",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "timeline": {
+      "title": "Production timeline",
+      "taskStatus": {
+        "pending": "Pending",
+        "in_progress": "In progress",
+        "completed": "Done",
+        "blocked": "Blocked"
+      }
+    },
+    "vendors": {
+      "title": "Assigned vendors",
+      "status": {
+        "proposed": "Proposed",
+        "contacted": "Contacted",
+        "confirmed": "Confirmed",
+        "paid": "Paid",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "rating": "Rating",
+      "message": "Message"
+    },
+    "budget": {
+      "title": "Budget",
+      "item": "Line item",
+      "planned": "Planned",
+      "paid": "Paid",
+      "invoiced": "Invoiced to client",
+      "paidToDate": "Paid to date",
+      "outstanding": "Outstanding"
+    },
+    "files": {
+      "title": "Files",
+      "empty": "Nothing here yet."
+    },
+    "portal": {
+      "title": "Client portal",
+      "description": "This is the private portal your client sees. Share the link below.",
+      "open": "Open portal",
+      "copy": "Copy link",
+      "copied": "Copied"
+    }
+  },
+  "caseStudy": {
+    "eyebrow": "Case study",
+    "guests": "Guests",
+    "budget": "Investment",
+    "year": "Year",
+    "team": "The team behind it",
+    "overview": "A Maranasi production delivered end to end — from first concept to the final frame.",
+    "back": "The Library"
+  },
+  "clientPortal": {
+    "eyebrowWedding": "Your wedding",
+    "eyebrowEvent": "Your event",
+    "units": { "days": "days", "hours": "hours", "minutes": "minutes", "seconds": "seconds" },
+    "proposal": "Your proposal",
+    "proposalNote": "Prepared by Maranasi",
+    "moodboard": "Mood board",
+    "journey": "The journey",
+    "producer": "Your producer",
+    "message": "Message",
+    "approve": "Approve proposal",
+    "approved": "Approved — we can't wait.",
+    "requestChanges": "Request changes",
+    "requested": "Thank you — your producer will be in touch.",
+    "scrollHint": "Scroll"
   }
 }

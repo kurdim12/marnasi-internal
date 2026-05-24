@@ -6,6 +6,7 @@ import { localizedNumber } from '@/lib/utils';
 import { leads } from '@/lib/seed';
 import type { Lead } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import { playChime } from '@/lib/sound';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -72,7 +73,7 @@ export function Inbox({ onGenerate, onView }: { onGenerate: (l: Lead) => void; o
               <div className="mt-4 flex flex-wrap gap-2">
                 {hero ? (
                   <>
-                    <button type="button" onClick={() => onGenerate(lead)} className="btn btn-primary">
+                    <button type="button" onClick={() => { playChime(); onGenerate(lead); }} className="btn btn-primary">
                       {t.inbox.generateProposal}
                     </button>
                     <button type="button" onClick={() => onView(lead)} className="btn btn-ghost">

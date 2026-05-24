@@ -5,9 +5,10 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Check, X, Download, Send, ArrowLeft } from 'lucide-react';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { cn, formatJod, localizedNumber } from '@/lib/utils';
-import { pastEvents, vendors } from '@/lib/seed';
+import { pastEvents, vendors, activeEvents, tokenForEvent } from '@/lib/seed';
 import type { Lead } from '@/lib/types';
 import { MaranasiLogo } from '@/components/MaranasiLogo';
+import { playChime } from '@/lib/sound';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const STEP_MS = [400, 600, 800, 700, 1000, 2500];
@@ -136,7 +137,7 @@ function Idle({ name, onStart }: { name: string; onStart: () => void }) {
   return (
     <div>
       <h2 className="text-h2 text-maranasi-cream">{interpolate(t.deck.generatingFor, { name })}</h2>
-      <button type="button" onClick={onStart} className="btn btn-gold mt-8">{t.deck.generate}</button>
+      <button type="button" onClick={() => { playChime(); onStart(); }} className="btn btn-gold mt-8">{t.deck.generate}</button>
     </div>
   );
 }
@@ -402,6 +403,8 @@ function CredentialsSlide() {
 
 function PortalPreview({ lead, onBack }: { lead: Lead; onBack: () => void }) {
   const { t, locale } = useI18n();
+  const linkedEvent = activeEvents.find((e) => e.leadId === lead.id);
+  const portalToken = linkedEvent ? tokenForEvent(linkedEvent.id) : undefined;
   const target = new Date(lead.preferredDate ?? '2026-10-17').getTime();
   const diff = Math.max(0, target - Date.now());
   const days = Math.floor(diff / 86400000);
@@ -427,6 +430,11 @@ function PortalPreview({ lead, onBack }: { lead: Lead; onBack: () => void }) {
           ))}
         </div>
         <p className="text-body relative mt-10 max-w-md text-maranasi-cream/85">{t.deck.sentBody}</p>
+        {portalToken && (
+          <a href={`/c/${portalToken}`} target="_blank" rel="noopener noreferrer" className="btn btn-gold relative mt-8">
+            {t.eventDetail.portal.open}
+          </a>
+        )}
       </div>
     </div>
   );

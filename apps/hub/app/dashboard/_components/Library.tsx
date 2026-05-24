@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { localizedNumber } from '@/lib/utils';
@@ -31,26 +32,28 @@ export function Library() {
             transition={{ duration: 0.45, ease: EASE, delay: 0.05 * (i % 4) }}
             className="surface group overflow-hidden p-0"
           >
-            <div
-              className="relative flex h-36 flex-col justify-end p-4 text-maranasi-cream"
-              style={{ background: `linear-gradient(150deg, ${ev.gradient[0]}, ${ev.gradient[1]})` }}
-            >
-              <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(7,41,31,0.5), transparent 70%)' }} />
-              <span className="text-tiny absolute end-3 top-3 rounded-btn bg-white/15 px-2 py-0.5">{t.tiers[ev.tier]}</span>
-              <h3 className="font-display relative text-xl leading-tight">{ev.name}</h3>
-            </div>
+            <Link href={`/events/${ev.id}`} className="block transition-transform duration-200 hover:-translate-y-0.5">
+              <div
+                className="relative flex h-36 flex-col justify-end p-4 text-maranasi-cream"
+                style={{ background: `linear-gradient(150deg, ${ev.gradient[0]}, ${ev.gradient[1]})` }}
+              >
+                <span aria-hidden className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(7,41,31,0.5), transparent 70%)' }} />
+                <span className="text-tiny absolute end-3 top-3 rounded-btn bg-white/15 px-2 py-0.5">{t.tiers[ev.tier]}</span>
+                <h3 className="font-display relative text-xl leading-tight">{ev.name}</h3>
+              </div>
 
-            <div className="p-4">
-              <p className="text-small text-maranasi-ink/70">
-                {monthYear(ev.date)}  ·  {ev.venue}
-              </p>
-              <p className="text-tiny mt-1 text-maranasi-stone">
-                {interpolate(t.library.guests, { count: localizedNumber(ev.guestCount, locale) })}
-              </p>
-              <button type="button" className="text-tiny mt-3 text-maranasi-emerald transition-colors hover:text-maranasi-gold-deep">
-                {t.library.viewCaseStudy} →
-              </button>
-            </div>
+              <div className="p-4">
+                <p className="text-small text-maranasi-ink/70">
+                  {monthYear(ev.date)}  ·  {ev.venue}
+                </p>
+                <p className="text-tiny mt-1 text-maranasi-stone">
+                  {interpolate(t.library.guests, { count: localizedNumber(ev.guestCount, locale) })}
+                </p>
+                <span className="text-tiny mt-3 inline-block text-maranasi-emerald transition-colors group-hover:text-maranasi-gold-deep">
+                  {t.library.viewCaseStudy} →
+                </span>
+              </div>
+            </Link>
           </motion.article>
         ))}
       </div>

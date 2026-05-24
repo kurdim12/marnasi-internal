@@ -110,5 +110,116 @@
     "sentBody": "بوّابة خاصة فيها عدّاد تنازلي حيّ، والعرض، ولوحة إلهام، ولمسة واحدة للموافقة.",
     "portalEyebrow": "زفافكِ",
     "units": { "days": "يوم", "hours": "ساعة", "minutes": "دقيقة" }
+  },
+  "vendorCategories": {
+    "catering": "الضيافة",
+    "floral": "تنسيق الزهور",
+    "photography": "التصوير",
+    "videography": "التصوير السينمائي",
+    "lighting": "الإضاءة",
+    "sound": "الصوت",
+    "venue": "القاعة",
+    "decor": "الديكور",
+    "entertainment": "الترفيه",
+    "transport": "النقل",
+    "other": "أخرى"
+  },
+  "eventDetail": {
+    "back": "لوحة التحكم",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "timeline": "الجدول الزمني",
+      "vendors": "المورّدون",
+      "budget": "الميزانية",
+      "files": "الملفات",
+      "portal": "بوّابة العميل"
+    },
+    "overview": {
+      "producer": "المنتجة",
+      "venue": "القاعة",
+      "guests": "الضيوف",
+      "budget": "الميزانية",
+      "tier": "الباقة",
+      "tasks": "المهام المنجزة",
+      "daysToGo": "باقٍ {count} يوماً",
+      "tomorrow": "غداً",
+      "today": "اليوم",
+      "completed": "اكتملت",
+      "recentActivity": "النشاط الأخير"
+    },
+    "status": {
+      "planning": "التخطيط",
+      "in_production": "قيد التنفيذ",
+      "day_of": "يوم الفعالية",
+      "completed": "اكتملت",
+      "archived": "مؤرشفة"
+    },
+    "timeline": {
+      "title": "الجدول الزمني للإنتاج",
+      "taskStatus": {
+        "pending": "بالانتظار",
+        "in_progress": "قيد التنفيذ",
+        "completed": "منجزة",
+        "blocked": "متوقفة"
+      }
+    },
+    "vendors": {
+      "title": "المورّدون المعيّنون",
+      "status": {
+        "proposed": "مقترح",
+        "contacted": "تم التواصل",
+        "confirmed": "مؤكّد",
+        "paid": "مدفوع",
+        "completed": "اكتمل",
+        "cancelled": "ملغى"
+      },
+      "rating": "التقييم",
+      "message": "مراسلة"
+    },
+    "budget": {
+      "title": "الميزانية",
+      "item": "البند",
+      "planned": "المُخطّط",
+      "paid": "المدفوع",
+      "invoiced": "المفوتر للعميلة",
+      "paidToDate": "المدفوع حتى الآن",
+      "outstanding": "المتبقّي"
+    },
+    "files": {
+      "title": "الملفات",
+      "empty": "لا شيء هنا بعد."
+    },
+    "portal": {
+      "title": "بوّابة العميلة",
+      "description": "هذه هي البوّابة الخاصة التي تراها عميلتكِ. شاركي الرابط أدناه.",
+      "open": "فتح البوّابة",
+      "copy": "نسخ الرابط",
+      "copied": "تم النسخ"
+    }
+  },
+  "caseStudy": {
+    "eyebrow": "دراسة حالة",
+    "guests": "الضيوف",
+    "budget": "الاستثمار",
+    "year": "السنة",
+    "team": "الفريق وراء الحدث",
+    "overview": "إنتاجٌ متكامل من مَرْناسي — من الفكرة الأولى حتى اللقطة الأخيرة.",
+    "back": "الأرشيف"
+  },
+  "clientPortal": {
+    "eyebrowWedding": "زفافكِ",
+    "eyebrowEvent": "فعاليتكِ",
+    "units": { "days": "يوم", "hours": "ساعة", "minutes": "دقيقة", "seconds": "ثانية" },
+    "proposal": "عرضكِ",
+    "proposalNote": "أُعدّ من قبل مَرْناسي",
+    "moodboard": "لوحة الإلهام",
+    "journey": "الرحلة",
+    "producer": "منتجتكِ",
+    "message": "مراسلة",
+    "approve": "الموافقة على العرض",
+    "approved": "تمت الموافقة — لا نطيق الانتظار.",
+    "requestChanges": "طلب تعديلات",
+    "requested": "شكراً لكِ — ستتواصل معكِ منتجتكِ قريباً.",
+    "scrollHint": "مرّري للأسفل"
   }
 }

@@ -220,3 +220,25 @@ export const pastEvents: PastEvent[] = [
   { id: 'past-bisharat-50', name: 'Bisharat 50th Birthday', eventType: 'private', date: '2025-08-16', venue: 'Private estate', guestCount: 80, tier: 'bespoke', budgetJod: 33000, gradient: G.stone },
   { id: 'past-shomali', name: 'Shomali Corporate Retreat', eventType: 'corporate', date: '2025-07-09', venue: 'Mövenpick Petra', guestCount: 60, tier: 'signature', budgetJod: 19000, gradient: G.night },
 ];
+
+/* Client-portal magic-link sessions (Section 4 client_sessions) -------- */
+export interface ClientSession { token: string; eventId: string; }
+export const clientSessions: ClientSession[] = [
+  { token: 'reem-deadsea-2026', eventId: 'evt-khoury' },
+  { token: 'tabbaa-stregis', eventId: 'evt-tabbaa' },
+  { token: 'husseini-leroyal', eventId: 'evt-husseini' },
+];
+
+export function findActiveEvent(id: string): ActiveEvent | undefined {
+  return activeEvents.find((e) => e.id === id);
+}
+export function findPastEvent(id: string): PastEvent | undefined {
+  return pastEvents.find((e) => e.id === id);
+}
+export function tokenForEvent(eventId: string): string | undefined {
+  return clientSessions.find((s) => s.eventId === eventId)?.token;
+}
+export function eventForToken(token: string): ActiveEvent | undefined {
+  const eventId = clientSessions.find((s) => s.token === token)?.eventId;
+  return eventId ? findActiveEvent(eventId) : undefined;
+}
