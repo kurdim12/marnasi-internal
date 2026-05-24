@@ -14,7 +14,7 @@ export function LoginForm() {
   const { t, dir } = useI18n();
   const router = useRouter();
   // Prefilled with the demo owner account so the pitch is one click — editable.
-  const [email, setEmail] = useState('hadeel@maranasi.com');
+  const [email, setEmail] = useState('imran@maranasi.com');
   const [password, setPassword] = useState('maranasi');
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);

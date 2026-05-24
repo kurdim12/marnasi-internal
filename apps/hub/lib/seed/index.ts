@@ -25,7 +25,7 @@ export const TASKS_THIS_WEEK = 3;
 
 /* Staff (Section 7.1) -------------------------------------------------- */
 export const staff: Profile[] = [
-  { userId: 'staff-hadeel', email: 'hadeel@maranasi.com', fullName: 'Hadeel Al-Masri', role: 'owner', avatarColor: '#0B3D2E', phone: '+962 7 9000 0001', languagePreference: 'ar' },
+  { userId: 'staff-hadeel', email: 'imran@maranasi.com', fullName: 'Imran Al-Masri', role: 'owner', avatarColor: '#0B3D2E', phone: '+962 7 9000 0001', languagePreference: 'ar' },
   { userId: 'staff-tareq', email: 'tareq@maranasi.com', fullName: 'Tareq Nashawati', role: 'producer', avatarColor: '#14543f', phone: '+962 7 9000 0002', languagePreference: 'en' },
   { userId: 'staff-lina', email: 'lina@maranasi.com', fullName: 'Lina Khoury', role: 'coordinator', avatarColor: '#1f6b63', phone: '+962 7 9000 0003', languagePreference: 'ar' },
   { userId: 'staff-rana', email: 'rana@maranasi.com', fullName: 'Rana Saleh', role: 'assistant', avatarColor: '#3a4a40', phone: '+962 7 9000 0004', languagePreference: 'en' },
@@ -195,7 +195,7 @@ export const activeEvents: ActiveEvent[] = [
     id: 'evt-khoury', leadId: 'lead-reem', clientId: 'client-reem', name: 'Khoury Wedding', eventType: 'wedding',
     daysFromNow: 146, venue: 'Kempinski Ishtar, Dead Sea', venueAddress: 'Sweimeh, Dead Sea Rd',
     guestCount: 250, tier: 'bespoke', status: 'planning', totalBudgetJod: 52000,
-    producerName: 'Hadeel Al-Masri', tasksTotal: 16, tasksComplete: 3, gradient: G.deadSea,
+    producerName: 'Imran Al-Masri', tasksTotal: 16, tasksComplete: 3, gradient: G.deadSea,
   },
   {
     id: 'evt-capitalbank', clientId: 'client-capitalbank', name: 'Capital Bank Retreat', eventType: 'corporate',
