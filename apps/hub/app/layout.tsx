@@ -11,6 +11,7 @@ const plexArabic = IBM_Plex_Sans_Arabic({ subsets: ['arabic', 'latin'], weight: 
 export const metadata: Metadata = {
   title: 'Maranasi Hub',
   description: 'The operating system for luxury event production.',
+  icons: { icon: '/icon.svg' },
   robots: { index: false, follow: false },
 };
 
