@@ -4,21 +4,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { localizedNumber } from '@/lib/utils';
-import { activeEvents } from '@/lib/seed';
 import type { ActiveEvent } from '@/lib/types';
 import { ProgressRing } from '@/components/ProgressRing';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-function ordered(): ActiveEvent[] {
-  return [...activeEvents].sort((a, b) => {
+function ordered(events: ActiveEvent[]): ActiveEvent[] {
+  return [...events].sort((a, b) => {
     const ac = a.daysFromNow < 0, bc = b.daysFromNow < 0;
     if (ac !== bc) return ac ? 1 : -1; // completed events trail
     return a.daysFromNow - b.daysFromNow;
   });
 }
 
-export function ActiveEvents() {
+export function ActiveEvents({ events }: { events: ActiveEvent[] }) {
   const { t, locale } = useI18n();
 
   function countdown(ev: ActiveEvent): string {
@@ -32,7 +31,7 @@ export function ActiveEvents() {
     <div>
       <h2 className="font-display text-2xl text-maranasi-emerald">{t.events.title}</h2>
       <div className="no-scrollbar mt-4 flex gap-4 overflow-x-auto pb-2">
-        {ordered().map((ev, i) => {
+        {ordered(events).map((ev, i) => {
           const pct = Math.round((ev.tasksComplete / ev.tasksTotal) * 100);
           const done = ev.daysFromNow < 0;
           return (

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { localizedNumber } from '@/lib/utils';
-import { leads } from '@/lib/seed';
 import type { Lead } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { playChime } from '@/lib/sound';
@@ -14,7 +13,7 @@ function isHero(lead: Lead): boolean {
   return lead.status === 'new' && !lead.noteKey;
 }
 
-export function Inbox({ onGenerate, onView }: { onGenerate: (l: Lead) => void; onView: (l: Lead) => void }) {
+export function Inbox({ leads, onGenerate, onView }: { leads: Lead[]; onGenerate: (l: Lead) => void; onView: (l: Lead) => void }) {
   const { t, locale } = useI18n();
 
   function monthYear(iso?: string): string {

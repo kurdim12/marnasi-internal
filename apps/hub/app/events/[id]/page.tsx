@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { getSessionUser } from '@/lib/auth';
-import { findActiveEvent, findPastEvent, tokenForEvent } from '@/lib/seed';
+import { tokenForEvent } from '@/lib/seed';
+import { getActiveEvent, getPastEvent } from '@/lib/db';
 import { deriveTasks, deriveVendors, deriveBudget } from '@/lib/eventDetail';
 import { EventDetail } from './EventDetail';
 import { CaseStudy } from './CaseStudy';
@@ -13,7 +14,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
   const { id } = await params;
 
-  const active = findActiveEvent(id);
+  const active = await getActiveEvent(id);
   if (active) {
     return (
       <EventDetail
@@ -26,7 +27,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
     );
   }
 
-  const past = findPastEvent(id);
+  const past = await getPastEvent(id);
   if (past) return <CaseStudy event={past} />;
 
   notFound();

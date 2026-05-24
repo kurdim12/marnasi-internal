@@ -8,7 +8,7 @@ import { MaranasiLogo } from '@/components/MaranasiLogo';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { Avatar } from '@/components/Avatar';
 import { TASKS_THIS_WEEK } from '@/lib/seed';
-import type { Lead } from '@/lib/types';
+import type { ActiveEvent, Lead, PastEvent } from '@/lib/types';
 import { signOutAction } from '../actions';
 import { Inbox } from './Inbox';
 import { ActiveEvents } from './ActiveEvents';
@@ -17,7 +17,15 @@ import { GenerateProposalModal } from './GenerateProposalModal';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function Dashboard({ userName, avatarColor }: { userName: string; avatarColor: string }) {
+export function Dashboard({
+  userName, avatarColor, leads, activeEvents, pastEvents,
+}: {
+  userName: string;
+  avatarColor: string;
+  leads: Lead[];
+  activeEvents: ActiveEvent[];
+  pastEvents: PastEvent[];
+}) {
   const { t, locale, dir } = useI18n();
   const [modal, setModal] = useState<{ lead: Lead; autoStart: boolean } | null>(null);
 
@@ -72,18 +80,19 @@ export function Dashboard({ userName, avatarColor }: { userName: string; avatarC
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-5">
           <section className="lg:col-span-2">
             <Inbox
+              leads={leads}
               onGenerate={(lead) => setModal({ lead, autoStart: true })}
               onView={(lead) => setModal({ lead, autoStart: false })}
             />
           </section>
           <section className="lg:col-span-3">
-            <ActiveEvents />
+            <ActiveEvents events={activeEvents} />
           </section>
         </div>
 
         {/* Zone 3 */}
         <section className="mt-10">
-          <Library />
+          <Library pastEvents={pastEvents} />
         </section>
       </div>
 

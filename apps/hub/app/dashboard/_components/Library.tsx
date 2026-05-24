@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useI18n, interpolate } from '@/lib/i18n';
 import { localizedNumber } from '@/lib/utils';
-import { pastEvents } from '@/lib/seed';
+import type { PastEvent } from '@/lib/types';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function Library() {
+export function Library({ pastEvents }: { pastEvents: PastEvent[] }) {
   const { t, locale } = useI18n();
   const items = [...pastEvents].sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
