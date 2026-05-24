@@ -244,7 +244,9 @@ function CoverSlide() {
       <div className="relative">
         <p className="text-tiny text-maranasi-champagne">{t.deck.cover.kicker}</p>
         <h2 className="font-display mt-2 text-5xl leading-none">Reem Al-Khoury</h2>
-        <p className="text-body mt-3 text-maranasi-cream/85">Kempinski Ishtar · Dead Sea · {new Intl.DateTimeFormat(locale === 'ar' ? 'ar' : 'en', { month: 'long', year: 'numeric' }).format(new Date('2026-10-17'))}</p>
+        <div className="mt-4 h-px w-16 bg-maranasi-gold/70" />
+        <p className="text-body mt-4 text-maranasi-cream/85">Kempinski Ishtar · Dead Sea · {new Intl.DateTimeFormat(locale === 'ar' ? 'ar' : 'en', { month: 'long', year: 'numeric' }).format(new Date('2026-10-17'))}</p>
+        <p className="text-small mt-1 italic text-maranasi-champagne">{t.deck.cover.tagline}</p>
       </div>
     </div>
   );

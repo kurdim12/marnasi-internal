@@ -92,7 +92,7 @@
       "tier": "Tier",
       "source": "Source"
     },
-    "cover": { "kicker": "A proposal by Maranasi", "preparedFor": "Prepared for" },
+    "cover": { "kicker": "A proposal by Maranasi", "preparedFor": "Prepared for", "tagline": "A wedding at the water's edge" },
     "slides": {
       "vision": "The Vision",
       "venue": "The Setting",
