@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/*
+  Maranasi Hub design system. Tailwind v4 reads tokens from @theme and
+  generates utilities (e.g. --color-maranasi-emerald -> bg-maranasi-emerald).
+  Palette + type scale are the canonical values from the brief, Section 5.
+*/
+@theme {
+  /* Brand */
+  --color-maranasi-emerald: #0B3D2E;
+  --color-maranasi-emerald-deep: #07291f;
+  --color-maranasi-emerald-soft: #14543f;
+  --color-maranasi-champagne: #E8D5B7;
+  --color-maranasi-gold: #C9A961;
+  --color-maranasi-gold-deep: #b3924a;
+  --color-maranasi-bone: #F8F5F0;
+  --color-maranasi-cream: #FBF8F3;
+  --color-maranasi-ink: #1A1A1A;
+  --color-maranasi-stone: #8B8378;
+  --color-maranasi-stone-soft: #b6afa3;
+  --color-maranasi-success: #5A7D5A;
+  --color-maranasi-warning: #C4894B;
+  --color-maranasi-danger: #A04545;
+  --color-maranasi-line: rgba(26, 26, 26, 0.08);
+
+  /* Type families (wired to next/font CSS variables in layout.tsx) */
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-arabic-display: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
+  --font-arabic-body: var(--font-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+
+  /* Radii (premium = nearly square, never pills) */
+  --radius-btn: 6px;
+  --radius-image: 8px;
+  --radius-card: 12px;
+
+  /* Motion */
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo-in: cubic-bezier(0.7, 0, 0.84, 0);
+}
+
+/* Base ---------------------------------------------------------------- */
+html {
+  font-family: var(--font-body);
+  background: var(--color-maranasi-bone);
+  color: var(--color-maranasi-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html[dir="rtl"] {
+  font-family: var(--font-arabic-body);
+}
+
+body {
+  background: var(--color-maranasi-bone);
+  color: var(--color-maranasi-ink);
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--color-maranasi-champagne);
+  color: var(--color-maranasi-emerald-deep);
+}
+
+/* Display typography uses the serif (Latin) / Cairo (Arabic) ---------- */
+.font-display { font-family: var(--font-display); }
+html[dir="rtl"] .font-display { font-family: var(--font-arabic-display); }
+
+/* Type scale (Section 5.2) ------------------------------------------- */
+.text-hero { font-family: var(--font-display); font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.01em; }
+.text-h1   { font-family: var(--font-display); font-size: 40px; line-height: 1.1;  font-weight: 500; letter-spacing: -0.01em; }
+.text-h2   { font-family: var(--font-display); font-size: 28px; line-height: 1.15; font-weight: 500; }
+.text-h3   { font-size: 20px; line-height: 1.3; font-weight: 600; }
+.text-body { font-size: 15px; line-height: 1.55; font-weight: 400; }
+.text-small { font-size: 13px; line-height: 1.5; font-weight: 400; }
+.text-tiny { font-size: 11px; line-height: 1.4; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+html[dir="rtl"] .text-hero,
+html[dir="rtl"] .text-h1,
+html[dir="rtl"] .text-h2 { font-family: var(--font-arabic-display); letter-spacing: 0; }
+html[dir="rtl"] .text-tiny { text-transform: none; letter-spacing: 0; }
+
+/* Numerals stay LTR even inside RTL text (Section 5.6) ---------------- */
+.numeral { direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+
+/* Components ---------------------------------------------------------- */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium transition-colors duration-200;
+    border-radius: var(--radius-btn);
+  }
+  .btn-primary {
+    background: var(--color-maranasi-emerald);
+    color: var(--color-maranasi-cream);
+  }
+  .btn-primary:hover { background: var(--color-maranasi-emerald-deep); }
+  .btn-gold {
+    background: var(--color-maranasi-gold);
+    color: var(--color-maranasi-emerald-deep);
+  }
+  .btn-gold:hover { background: var(--color-maranasi-gold-deep); }
+  .btn-ghost {
+    color: var(--color-maranasi-emerald);
+    border: 1px solid var(--color-maranasi-line);
+    background: transparent;
+  }
+  .btn-ghost:hover { background: rgba(11, 61, 46, 0.05); }
+
+  .field {
+    @apply w-full px-4 py-3 text-sm transition-shadow;
+    border-radius: var(--radius-btn);
+    background: var(--color-maranasi-cream);
+    border: 1px solid var(--color-maranasi-line);
+    color: var(--color-maranasi-ink);
+  }
+  .field::placeholder { color: var(--color-maranasi-stone-soft); }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-maranasi-gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.18);
+  }
+
+  .surface {
+    background: var(--color-maranasi-cream);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-maranasi-line);
+    box-shadow: 0 1px 2px rgba(26, 26, 26, 0.04);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium;
+    border-radius: var(--radius-btn);
+  }
+}
+
+/* Champagne shimmer skeleton (Section 5.5) --------------------------- */
+.skeleton {
+  background: linear-gradient(
+    100deg,
+    rgba(232, 213, 183, 0.18) 30%,
+    rgba(232, 213, 183, 0.45) 50%,
+    rgba(232, 213, 183, 0.18) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+/* Soft champagne glow for a freshly-arrived lead (Section 1.2) --------- */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.45), 0 0 22px rgba(201, 169, 97, 0.16); }
+  50%      { box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.85), 0 0 32px rgba(201, 169, 97, 0.32); }
+}
+.glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+
+/* Hide scrollbars on the horizontal event rail without losing scroll */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

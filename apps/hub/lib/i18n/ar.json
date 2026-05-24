@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appName": "مَرْناسي",
+    "switchLanguage": "English",
+    "signOut": "تسجيل الخروج",
+    "jod": "د.أ"
+  },
+  "login": {
+    "welcome": "أهلاً بعودتكِ إلى مَرْناسي.",
+    "emailLabel": "البريد الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "emailPlaceholder": "you@maranasi.com",
+    "passwordPlaceholder": "كلمة المرور",
+    "enterHub": "ادخلي إلى المنصّة",
+    "entering": "جارٍ الدخول",
+    "invalid": "البيانات غير متطابقة. حاولي مرّة أخرى."
+  },
+  "dashboard": {
+    "greetingMorning": "صباح الخير",
+    "greetingAfternoon": "طاب يومكِ",
+    "greetingEvening": "مساء الخير",
+    "greetingLine": "{greeting}، {name}.",
+    "tasksLine": "لديكِ {count} مهام تنتظركِ هذا الأسبوع.",
+    "signOut": "تسجيل الخروج"
+  },
+  "inbox": {
+    "title": "الوارد",
+    "quiet": "الوارد هادئ.",
+    "generateProposal": "إنشاء عرض",
+    "viewDetails": "التفاصيل",
+    "receivedHours": "وردت قبل {count} ساعة",
+    "receivedDays": "وردت قبل {count} يوم",
+    "guests": "{count} ضيف",
+    "statusNew": "جديد",
+    "statusAwaitingReply": "أُرسل العرض · بانتظار الرد",
+    "statusDraftReady": "المسودّة جاهزة",
+    "statusScheduledCall": "مكالمة محددة · الأربعاء ٤ عصراً"
+  },
+  "events": {
+    "title": "الفعاليات النشِطة",
+    "daysOut": "{count} يوماً",
+    "oneDayOut": "غداً",
+    "today": "اليوم",
+    "completedAgo": "اكتملت",
+    "guests": "{count} ضيف",
+    "percentComplete": "اكتمل {count}٪"
+  },
+  "library": {
+    "title": "الأرشيف",
+    "subtitle": "أعمال مختارة",
+    "viewCaseStudy": "دراسة الحالة",
+    "guests": "{count} ضيف"
+  },
+  "tiers": {
+    "essentials": "الأساسية",
+    "signature": "المميّزة",
+    "bespoke": "الاستثنائية"
+  },
+  "eventTypes": {
+    "wedding": "زفاف",
+    "corporate": "مؤسسي",
+    "gala": "حفل",
+    "private": "خاص",
+    "conference": "مؤتمر",
+    "other": "فعالية"
+  },
+  "deck": {
+    "steps": [
+      "تحليل طبيعة الطلب",
+      "المقارنة مع ٤٧ فعالية سابقة لمَرْناسي",
+      "اختيار قاعات مماثلة — كمبينسكي، موفنبيك، سانت ريجيس",
+      "ترشيح مزيج المورّدين بناءً على الأداء السابق",
+      "صياغة النطاق وباقات الميزانية",
+      "تصميم العرض"
+    ],
+    "generatingFor": "نُعدّ عرضاً مخصّصاً لـ{name}",
+    "ready": "عرضكِ جاهز.",
+    "leadDetails": "تفاصيل الطلب",
+    "rawMessage": "نص الاستفسار الأصلي",
+    "generate": "إنشاء العرض",
+    "downloadPdf": "تنزيل PDF",
+    "downloadPptx": "تنزيل PPTX",
+    "sendToClient": "إرسال إلى العميلة",
+    "close": "إغلاق",
+    "back": "العودة إلى العرض",
+    "slide": "{a} من {b}",
+    "fields": {
+      "eventType": "نوع الفعالية",
+      "guests": "الضيوف",
+      "venue": "القاعة المفضّلة",
+      "date": "التاريخ المفضّل",
+      "tier": "الباقة",
+      "source": "المصدر"
+    },
+    "cover": { "kicker": "عرضٌ من مَرْناسي", "preparedFor": "أُعدّ خصيصاً لـ" },
+    "slides": {
+      "vision": "الرؤية",
+      "venue": "المكان",
+      "comparable": "أعراس مماثلة من مَرْناسي",
+      "experience": "تجربة الضيوف",
+      "vendors": "فريق العمل",
+      "vendorsNote": "اختيارٌ بناءً على الأداء السابق مع مَرْناسي",
+      "budget": "الاستثمار",
+      "timeline": "الطريق إلى اليوم الموعود",
+      "next": "الخطوات التالية",
+      "credentials": "لماذا مَرْناسي"
+    },
+    "tierIncludes": "تشمل",
+    "sentTitle": "هذا ما ستراه {name}",
+    "sentBody": "بوّابة خاصة فيها عدّاد تنازلي حيّ، والعرض، ولوحة إلهام، ولمسة واحدة للموافقة.",
+    "portalEyebrow": "زفافكِ",
+    "units": { "days": "يوم", "hours": "ساعة", "minutes": "دقيقة" }
+  }
+}

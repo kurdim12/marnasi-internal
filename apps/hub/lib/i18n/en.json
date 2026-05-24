@@ -1,0 +1,114 @@
+{
+  "common": {
+    "appName": "Maranasi",
+    "switchLanguage": "العربية",
+    "signOut": "Sign out",
+    "jod": "JOD"
+  },
+  "login": {
+    "welcome": "Welcome back, Maranasi.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "emailPlaceholder": "you@maranasi.com",
+    "passwordPlaceholder": "Your password",
+    "enterHub": "Enter Hub",
+    "entering": "Entering",
+    "invalid": "Those credentials don't match. Try again."
+  },
+  "dashboard": {
+    "greetingMorning": "Good morning",
+    "greetingAfternoon": "Good afternoon",
+    "greetingEvening": "Good evening",
+    "greetingLine": "{greeting}, {name}.",
+    "tasksLine": "You have {count} things waiting for you this week.",
+    "signOut": "Sign out"
+  },
+  "inbox": {
+    "title": "The Inbox",
+    "quiet": "The inbox is quiet.",
+    "generateProposal": "Generate Proposal",
+    "viewDetails": "View Details",
+    "receivedHours": "received {count}h ago",
+    "receivedDays": "received {count}d ago",
+    "guests": "{count} guests",
+    "statusNew": "New",
+    "statusAwaitingReply": "Proposal sent · awaiting reply",
+    "statusDraftReady": "Draft ready",
+    "statusScheduledCall": "Scheduled call · Wed 4pm"
+  },
+  "events": {
+    "title": "Active Events",
+    "daysOut": "{count} days",
+    "oneDayOut": "Tomorrow",
+    "today": "Today",
+    "completedAgo": "Completed",
+    "guests": "{count} guests",
+    "percentComplete": "{count}% complete"
+  },
+  "library": {
+    "title": "The Library",
+    "subtitle": "Selected work",
+    "viewCaseStudy": "View Case Study",
+    "guests": "{count} guests"
+  },
+  "tiers": {
+    "essentials": "Essentials",
+    "signature": "Signature",
+    "bespoke": "Bespoke"
+  },
+  "eventTypes": {
+    "wedding": "Wedding",
+    "corporate": "Corporate",
+    "gala": "Gala",
+    "private": "Private",
+    "conference": "Conference",
+    "other": "Event"
+  },
+  "deck": {
+    "steps": [
+      "Analyzing lead intent",
+      "Matching against 47 past Maranasi events",
+      "Selecting comparable venues — Kempinski, Mövenpick, St. Regis",
+      "Recommending vendor mix based on past performance",
+      "Drafting scope and budget tiers",
+      "Designing the deck"
+    ],
+    "generatingFor": "Generating a tailored proposal for {name}",
+    "ready": "Your proposal is ready.",
+    "leadDetails": "Lead details",
+    "rawMessage": "Original inquiry",
+    "generate": "Generate Proposal",
+    "downloadPdf": "Download PDF",
+    "downloadPptx": "Download PPTX",
+    "sendToClient": "Send to Client",
+    "close": "Close",
+    "back": "Back to proposal",
+    "slide": "{a} of {b}",
+    "fields": {
+      "eventType": "Event",
+      "guests": "Guests",
+      "venue": "Preferred venue",
+      "date": "Preferred date",
+      "tier": "Tier",
+      "source": "Source"
+    },
+    "cover": { "kicker": "A proposal by Maranasi", "preparedFor": "Prepared for" },
+    "slides": {
+      "vision": "The Vision",
+      "venue": "The Setting",
+      "comparable": "Comparable Maranasi weddings",
+      "experience": "The Guest Experience",
+      "vendors": "The Atelier",
+      "vendorsNote": "Selected on past performance with Maranasi",
+      "budget": "Investment",
+      "timeline": "The Path to the Day",
+      "next": "Next Steps",
+      "credentials": "Why Maranasi"
+    },
+    "tierIncludes": "Includes",
+    "sentTitle": "This is what {name} will receive",
+    "sentBody": "A private portal with a live countdown, the proposal, a mood board, and a single tap to approve.",
+    "portalEyebrow": "Your wedding",
+    "units": { "days": "days", "hours": "hours", "minutes": "minutes" }
+  }
+}
