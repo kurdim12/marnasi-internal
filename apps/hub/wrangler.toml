@@ -2,3 +2,13 @@ name = "maranasi-hub"
 compatibility_date = "2024-11-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+# Real D1 database (provisioned on the Maranasi Cloudflare account).
+# NOTE: the native Pages Git build does not read this file, so the binding must
+# ALSO be added in the Pages dashboard (Settings > Bindings, variable name DB)
+# for the deployed app to use it. lib/db.ts falls back to seed data until bound.
+[[d1_databases]]
+binding = "DB"
+database_name = "maranasi-hub-db"
+database_id = "9fbc5239-2313-467e-80ab-d1cbf2cafd3d"
+migrations_dir = "db/migrations"
